@@ -70,8 +70,8 @@ system_instruction = """
 """
 
 model = genai.GenerativeModel(
-    model_name="gemini-1.5-flash-latest",
-    system_instruction=system_instruction
+    model_name="gemini-1.5-flash",
+    system_instruction=system_instruction, safety_settings=safety_settings )
 )
 
 # ٥. هەلگرتنا نامەیێن چاتی
