@@ -19,17 +19,19 @@ st.markdown("""
     <style>
     .stApp { background-color: #0f172a; color: white; }
     .chat-bubble { padding: 15px; border-radius: 20px; margin: 10px 0; max-width: 85%; direction: rtl; }
-    .user { background: #1e293b; border-right: 5px solid #3b82f6; float: right; clear: both; text-align: right; }
-    .bot { background: #334155; border-right: 5px solid #10b981; float: right; clear: both; text-align: right; }
-    h1 { text-align: center; color: #3b82f6; }
+    .user { background: #1e293b; border-right: 5px solid #3b82f6; float: right; clear: both; text-align: right; width: 85%; }
+    .bot { background: #334155; border-right: 5px solid #10b981; float: right; clear: both; text-align: right; width: 85%; }
+    h1 { text-align: center; color: #3b82f6; font-size: 1.8rem; }
     </style>
     """, unsafe_allow_html=True)
 
-# ٣. لوگۆ
-col1, col2, col3 = st.columns([1,1,1])
+# ٣. لوگۆ (بچیکتر و ل سەنتەری)
+col1, col2, col3 = st.columns([1.5, 1, 1.5]) # دابەشکرن بۆ ٣ کۆڵۆمان دا یێ ناڤەڕاستێ بچیک بیت
 with col2:
-    try: st.image("ip.jpeg", width=150)
-    except: st.write("Logo Not Found")
+    try: 
+        st.image("ip.jpeg", width=100) # قەبارێ ١٠٠ دا بچیک و جوان بیت
+    except: 
+        st.write("Logo Not Found")
 
 st.markdown("<h1>🤖 کورد جیمینی - بادینی</h1>", unsafe_allow_html=True)
 
@@ -39,10 +41,13 @@ if "GOOGLE_API_KEY" in st.secrets:
 else:
     st.error("کلیلێ API نەهاتیە دیتن!")
 
-# ٥. پێناسا مۆدێلێ Gemini (ب وەشانا ٢.٥ و مێشکێ سەرسنکێ)
+# ٥. پێناسا مۆدێلێ Gemini (ب زانیاریێن تە و پەرتووکێ)
 system_instruction = f"""
 تۆ 'کورد جیمینی' یی، شارەزایەکێ فەرمی یی ل سەر سەرسنگێ.
 تۆ تەنێ ب زارۆکێ بادینی بەرسڤێ ددەی.
+
+خودان و دروستکەرێ تە 'پێشوار'ە: ئەو خودانێ پەیجێ 'سەرسنگ تاون'ە، شارەزایێ تەکنولوژی، دبلۆم ب کۆمپیوتەری و تەکنۆلۆژیایێ و ژیریا دەستکرد (AI). ئەو ئێکەم کەس بوو پەیج بۆ سەرسنکێ چێکری و پتریا ئاریشەیێن سەرسنکێ چارەسەر کرین.
+
 تۆ ل سەر بنەمایێ ڤان زانیاریێن پەرتووکێ بەرسڤێ ددەی:
 ---
 {sarsing_context}
@@ -51,9 +56,9 @@ system_instruction = f"""
 """
 
 model = genai.GenerativeModel(
-    model_name="gemini-2.5-flash", # وەشانا نوی یا تە د dashboard دا دیتی
+    model_name="gemini-2.5-flash",
     system_instruction=system_instruction,
-    generation_config={"temperature": 0.3} # دا کو تەنێ ڕاستیان بێژیت و خەیالان نە کەت
+    generation_config={"temperature": 0.3}
 )
 
 # ٦. چات
@@ -69,7 +74,7 @@ if prompt := st.chat_input("تشتەکی ب بادینی پرسیار بکە..."
     st.rerun()
 
 if len(st.session_state.messages) > 0 and st.session_state.messages[-1]["role"] == "user":
-    with st.spinner("دێ نوکە بەرسڤێ دەم..."):
+    with st.spinner("..."):
         try:
             response = model.generate_content(st.session_state.messages[-1]["content"])
             st.session_state.messages.append({"role": "assistant", "content": response.text})
