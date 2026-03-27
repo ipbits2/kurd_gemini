@@ -68,7 +68,7 @@ safety_settings = [
 
 # پێناسەکرنا مۆدێلێ Gemini 1.5 ب زمانێ بادینی
 model = genai.GenerativeModel(
-    model_name="gemini-pro",
+    model_name="gemini-2.5-flash",
     safety_settings=safety_settings,
     system_instruction="تۆ 'کورد جیمینی' یی، یاریدەدەرەکی زیرەکی دەستکردی زۆر شارەزا و ڕێزدار. تۆ تەنێ و تەنێ ب زارۆکێ بادینی (دهۆک، سەرسنک، ئامێدی) بەرسڤێ ددەی. ب هیچ ڕەنگەکێ پەیڤێن سۆرانی بکار نەئینە."
 )
