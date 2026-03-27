@@ -46,7 +46,7 @@ st.markdown("""
 col1, col2, col3 = st.columns([1,1,1])
 with col2:
     try:
-        st.image("ip.jpeg", width=150)
+        st.image("ip.jpeg", width=100)
     except:
         st.warning("⚠️ فایلێ لوگۆیی (ip.jpeg) ناهێتە دیتن ل سەر گیتھابێ")
 
@@ -68,7 +68,7 @@ safety_settings = [
 
 # پێناسەکرنا مۆدێلێ Gemini 1.5 ب زمانێ بادینی
 model = genai.GenerativeModel(
-    model_name="gemini-1.5-flash",
+    model_name="models/gemini-1.5-flash",
     safety_settings=safety_settings,
     system_instruction="تۆ 'کورد جیمینی' یی، یاریدەدەرەکی زیرەکی دەستکردی زۆر شارەزا و ڕێزدار. تۆ تەنێ و تەنێ ب زارۆکێ بادینی (دهۆک، سەرسنک، ئامێدی) بەرسڤێ ددەی. ب هیچ ڕەنگەکێ پەیڤێن سۆرانی بکار نەئینە."
 )
