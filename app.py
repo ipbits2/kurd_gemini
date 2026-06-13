@@ -29,7 +29,7 @@ st.markdown("""
 col1, col2, col3 = st.columns([1.5, 1, 1.5]) # دابەشکرن بۆ ٣ کۆڵۆمان دا یێ ناڤەڕاستێ بچیک بیت
 with col2:
     try: 
-        st.image("ip.jpeg", width=100) # قەبارێ ١٠٠ دا بچیک و جوان بیت
+        st.image("st.jpg", width=100) # قەبارێ ١٠٠ دا بچیک و جوان بیت
     except: 
         st.write("Logo Not Found")
 
