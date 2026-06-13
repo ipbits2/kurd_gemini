@@ -3,7 +3,7 @@ import google.generativeai as genai
 import os
 
 # ١. ڕێکخستنا لاپەڕەی
-st.set_page_config(page_title="کورد جیمینی", page_icon="🤖", layout="centered")
+st.set_page_config(page_title="Sarsing Town", page_icon="🤖", layout="centered")
 
 # پشکا خویندنا پەرتووکێ (Knowledge Base)
 def get_sarsing_data():
@@ -81,3 +81,4 @@ if len(st.session_state.messages) > 0 and st.session_state.messages[-1]["role"] 
             st.rerun()
         except Exception as e:
             st.error(f"ئاریشەیەک چێبوو: {str(e)}")
+
