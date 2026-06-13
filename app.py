@@ -33,7 +33,7 @@ with col2:
     except: 
         st.write("Logo Not Found")
 
-st.markdown("<h1>🤖 کورد جیمینی - بادینی</h1>", unsafe_allow_html=True)
+st.markdown("<h1> Sarsing Town Ai 🤖</h1>", unsafe_allow_html=True)
 
 # ٤. کلیلێ API
 if "GOOGLE_API_KEY" in st.secrets:
@@ -81,4 +81,5 @@ if len(st.session_state.messages) > 0 and st.session_state.messages[-1]["role"] 
             st.rerun()
         except Exception as e:
             st.error(f"ئاریشەیەک چێبوو: {str(e)}")
+
 
